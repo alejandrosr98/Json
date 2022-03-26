@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 //pool format
-//keys: size (1 byte) | key | \0 (1 byte) | next key dir (2 bytes) | value dir (2 bytes) or value (n bytes)
+//keys: size (1 byte)(max key size = 255) | key | \0 (1 byte) | next key dir (2 bytes) | value type (1 byte) | value dir (2 bytes) or value (n bytes)
 
 template<uint16_t _poolTSize>
 class Json
@@ -21,6 +21,8 @@ class Json
 
 		uint16_t freeSpace_ = _poolTSize;
 		uint16_t accesDir_ = 0;
+
+		enum class jType {undef, jsonType, vectorType, intType, stringType, doubleType};
 };
 
 #include <Json.inl>
