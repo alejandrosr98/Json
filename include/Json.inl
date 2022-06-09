@@ -73,7 +73,3 @@ uint16_t Json<_poolTSize>::findKey(const char* _key)
 	}
 	return 0;
 }
-
-Json<_poolTSize> Json<_poolTSize>::operator[](const char* _key)
-{
-}
